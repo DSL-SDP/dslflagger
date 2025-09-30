@@ -22,5 +22,5 @@ setup(
     author_email = "sfzuo@bao.ac.cn",
     description = "DSL RFI flagging package.",
     license = "GPL v3.0",
-    url = "https://github.com/DSL/dslflagger",
+    url = "https://github.com/DSL-SDP/dslflagger",
 )
