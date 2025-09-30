@@ -1,0 +1,22 @@
+# -*- mode: python; -*-
+
+# input file for pipeline manager
+# execute this pipeline by either command of the following two:
+# dslpipe dir/to/input.pipe
+# mpiexec -n N dslpipe dir/to/input.pipe
+
+
+pipe_tasks = []
+pipe_outdir = './output/'
+pipe_logging = 'debug'
+pipe_timing = True
+pipe_flush = True
+
+
+from dslflagger.tasks import example_rfi_flag
+pipe_tasks.append(example_rfi_flag.RFIFlag)
+### parameters for RFIFlag
+# rf_in = 'test_in'
+rf_input_files = 'test.hdf5'
+rf_algorithm = 'alg2'
+rf_out = 'rf'
