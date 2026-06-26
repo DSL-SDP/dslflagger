@@ -37,9 +37,9 @@ class GenMockRFI(OneAndOne):
                     'rfi_impulse_chance': 0.01,
                     'rfi_impulse_strength': 20000.0,
                     # Scatter parameters (sparse time/frequency bins).
-                    'rfi_scatter_chance': 0.01,
+                    'rfi_scatter_chance': 0.001,
                     'rfi_scatter_strength': 10000.0,
-                    'rfi_scatter_std': 1000.0,
+                    'rfi_scatter_std': 100.0,
                     # RNG seed for reproducible mock RFI. None -> nondeterministic.
                     'rng_seed': None,
                   }

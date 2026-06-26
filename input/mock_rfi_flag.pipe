@@ -32,3 +32,35 @@ pipe_tasks.append(plot_waterfall.Plot)
 pwf_in = psl_out
 pwf_abs_only = True
 pwf_out = 'pwf'
+
+from dslflagger.tasks import sumthreshold_flag
+pipe_tasks.append(sumthreshold_flag.Flag)
+### parameters for Flag
+stf_in = pwf_out
+stf_out = 'stf'
+
+from dslflagger.plot import plot_waterfall
+pipe_tasks.append((plot_waterfall.Plot, 'pwf1_'))
+### parameters for Plot
+pwf1_in = stf_out
+pwf1_flag_mask = True
+pwf1_abs_only = True
+pwf1_color_flag = True
+pwf1_fig_name = 'wf_st/wf'
+pwf1_out = 'pwf1'
+
+from dslflagger.tasks import sir_flag
+pipe_tasks.append(sir_flag.Flag)
+### parameters for Flag
+sir_in = pwf1_out
+sir_out = 'sir'
+
+from dslflagger.plot import plot_waterfall
+pipe_tasks.append((plot_waterfall.Plot, 'pwf2_'))
+### parameters for Plot
+pwf2_in = sir_out
+pwf2_flag_mask = True
+pwf2_abs_only = True
+pwf2_color_flag = True
+pwf2_fig_name = 'wf_sir/wf'
+pwf2_out = 'pwf2'
