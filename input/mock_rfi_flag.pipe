@@ -1,0 +1,34 @@
+# -*- mode: python; -*-
+
+# input file for pipeline manager
+# execute this pipeline by either command of the following two:
+# dslpipe dir/to/input.pipe
+# mpiexec -n N dslpipe dir/to/input.pipe
+
+
+pipe_tasks = []
+pipe_outdir = './output_mock_rfi/'
+pipe_logging = 'debug'
+pipe_timing = True
+pipe_flush = True
+
+
+from dslflagger.tasks import gen_mock_rfi
+pipe_tasks.append(gen_mock_rfi.GenMockRFI)
+### parameters for GenMockRFI
+gmr_input_files = '/home/zuoshifan/programming/python/21cmcosmology/dsl/dslflagger/data/mock_high_freq_spec_tod.hdf5'
+gmr_output_files = 'mock_high_freq_spec_tod_with_rfi.hdf5'
+gmr_out = 'gmr'
+
+from dslflagger.plot import plot_slice
+pipe_tasks.append(plot_slice.Plot)
+### parameters for Plot
+psl_in = gmr_out
+psl_out = 'psl'
+
+from dslflagger.plot import plot_waterfall
+pipe_tasks.append(plot_waterfall.Plot)
+### parameters for Plot
+pwf_in = psl_out
+pwf_abs_only = True
+pwf_out = 'pwf'
