@@ -19,8 +19,7 @@ pipe_tasks.append(gen_mock_rfi.GenMockRFI)
 # Resolve the input relative to this pipe file's location so the pipeline
 # works no matter which directory ``dslpipe`` is invoked from.
 import os
-# gmr_input_files = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'mock_high_freq_spec_tod.hdf5')
-gmr_input_files = '/home/zuoshifan/programming/python/21cmcosmology/dsl/dslflagger/data/mock_high_freq_spec_tod.hdf5'
+gmr_input_files = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'mock_high_freq_spec_tod.hdf5')
 gmr_output_files = 'mock_high_freq_spec_tod_with_rfi.hdf5'
 gmr_out = 'gmr'
 
